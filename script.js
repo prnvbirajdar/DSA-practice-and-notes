@@ -1,29 +1,3 @@
-// Contructor function is a function that allows you to create an object class
-// and allows you to create multiple instances of that class very easily.
-// i.e. These functions allows you to create many objects that have same properties
-// and functionality because they're all part of the same class.
-
-//eg:
-
-function User(name, phone, gender) {
-  this.name = name;
-  this.phone = phone;
-  this.gender = gender;
-}
-
-// dunder proto === __proto__
-
-// Prototype Object
-// Basically means that every User instance will have '@gmail.com' in their dunder proto object
-// We can't access this property in the actual object, but only via the dunder proto
-// i.e. It is available at User
-User.prototype.email = "@gmail.com";
-
-const user1 = new User("Pranav", 2605677, "male");
-
-// Here user1.email gives you '@gmail.com' and it is available on every new object
-// we define using User contructor function 
-
 function LinkedList() {
   this.head = null;
   this.tail = null;
@@ -33,4 +7,46 @@ function Node(value, next, prev) {
   this.value = value;
   this.next = next;
   this.prev = prev;
+}
+
+LinkedList.prototype.addToHead = (value) => {
+  const newNode = new Node(value, this.head, null);
+  if (this.head) this.head.prev = newNode;
+  else this.tail = newNode;
+  this.head = newNode;
+};
+
+function loopFunc(a, b) {
+  for (let index = 0; index < a; index++) {
+    for (let index = 0; index < b; index++) {
+      console.log(a, b);
+    }
+  }
+}
+
+function loopFunc(a, b) {
+  for (let index = 0; index < a; index++) {
+    console.log(a);
+  }
+
+  for (let index = 0; index < b; index++) {
+    console.log(b);
+  }
+}
+
+loopFunc(2, 6);
+
+function loopFunc(n) {
+  console.log(n); // o(n)
+
+  console.log(n); // o(n)
+
+  console.log(n + n + n + n); // o(1)
+
+  // o(n^2)
+  for (let index = 0; index < n; index++) {
+    for (let index = 0; index < n; index++) {
+      console.log(n);
+    }
+  }
 }

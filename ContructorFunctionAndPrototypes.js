@@ -21,5 +21,7 @@ User.prototype.email = "@gmail.com";
 
 const user1 = new User("Pranav", 2605677, "male");
 
+console.log(user1);
+
 // Here user1.email gives you '@gmail.com' and it is available on every new object
 // we define using User contructor function
