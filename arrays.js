@@ -2,8 +2,8 @@
 // "hi my name is pranav"
 
 function ReverseStr(str) {
-  if (!str || str.length <= 2 || typeof str !== "string") {
-    return "give proper input";
+  if (!str || str.length < 2 || typeof str !== "string") {
+    return "Error: Enter valid string";
   }
 
   const newArr = [];
@@ -14,8 +14,21 @@ function ReverseStr(str) {
     newArr.push(element);
   }
 
-  console.log(newArr);
   return newArr.join("");
 }
 
-ReverseStr("hi my name is pranav");
+console.log(ReverseStr("Hi, does this works?"));
+
+// Cleaner method
+
+const ReverseStr2 = (str) => [...str].reverse().join("");
+
+console.log(ReverseStr2("Hi, does this works?"));
+
+// Merge Sorted Arrays
+// [0,3,5,10] [1,2,7,15]
+
+const mergeSortedArrays = (a, b) =>
+  [...a, ...b].sort((c, d) => c-d);
+
+console.log(mergeSortedArrays([0, 3, 5, 57], [1, 2, 50]));
