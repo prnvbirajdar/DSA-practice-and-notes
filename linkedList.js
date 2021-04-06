@@ -89,12 +89,40 @@ class LinkedList {
   }
 
   get(index) {
-      
+    if (index < 0 || index >= this.length) {
+      return undefined;
+    }
+    let temp = this.head;
+    for (let i = 0; i < index; i++) {
+      temp = temp.next;
+    }
+    return temp;
+  }
+
+  set(index, value) {
+    let temp = this.get(index);
+    //if block makes sure that index is valid, because out get method can return undefined too
+    if (temp) {
+      temp.value = value;
+      // return true breaks the loop and we successfully set it
+      return true;
+    }
+    //if undefined, we return false
+    return false;
+  }
+
+  insert(index, value) {
+    if (index < 0 || index > this.length) return false;
+    if (index === 0) return this.unshift(value);
+    if (index === this.length) return this.push(value);
   }
 }
 
-const myLinkedList = new LinkedList(5);
+const myLinkedList = new LinkedList(0);
 
-myLinkedList.unshift(5454646);
+myLinkedList.push(1);
+myLinkedList.push(2);
+myLinkedList.push(3);
+myLinkedList.push(4);
 
 console.log(myLinkedList);
