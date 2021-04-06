@@ -115,13 +115,20 @@ class LinkedList {
     if (index < 0 || index > this.length) return false;
     if (index === 0) return this.unshift(value);
     if (index === this.length) return this.push(value);
+
+    const newNode = new Node(value); // create new node
+    let temp = this.get(index - 1); // declare a variable for node prior to the wanted index
+    newNode.next = temp.next; // new node's next should point to node at index i.e. temp.next
+    temp.next = newNode; // now (index - 1) node i.e. temp should point at newNode
+    this.length++;
+    return true;
   }
 }
 
 const myLinkedList = new LinkedList(0);
 
 myLinkedList.push(1);
-myLinkedList.push(2);
+myLinkedList.push(46456);
 myLinkedList.push(3);
 myLinkedList.push(4);
 
