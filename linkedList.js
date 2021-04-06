@@ -117,11 +117,41 @@ class LinkedList {
     if (index === this.length) return this.push(value);
 
     const newNode = new Node(value); // create new node
-    let temp = this.get(index - 1); // declare a variable for node prior to the wanted index
+    const temp = this.get(index - 1); // declare a variable for node prior to the wanted index
     newNode.next = temp.next; // new node's next should point to node at index i.e. temp.next
     temp.next = newNode; // now (index - 1) node i.e. temp should point at newNode
     this.length++;
     return true;
+  }
+
+  remove(index) {
+    if (index < 0 || index > this.length) return undefined;
+    if (index === 0) return this.shift();
+    if (index === this.length - 1) return this.pop();
+    const beforeTemp = this.get(index - 1);
+    const temp = beforeTemp.next;
+    beforeTemp.next = temp.next;
+    temp.next = null;
+    this.length--;
+    return temp;
+  }
+
+  reverse() {
+    // reversing head and tail
+    let temp = this.head;
+    this.head = this.tail;
+    this.tail = temp;
+
+    let prev = null;
+    let next = temp.next;
+
+    for (let i = 0; i < length; i++) {
+      next = temp.next; // next is after temp
+      temp.next = prev; // switch temp.next to prev i.e. reverse the pointer
+      prev = temp; // prev and temp is same
+      temp = next; // move temp over by making temp and next as same and loop it over
+    }
+    return this;
   }
 }
 
