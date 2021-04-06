@@ -145,7 +145,7 @@ class LinkedList {
     let prev = null;
     let next = temp.next;
 
-    for (let i = 0; i < length; i++) {
+    for (let i = 0; i < this.length; i++) {
       next = temp.next; // next is after temp
       temp.next = prev; // switch temp.next to prev i.e. reverse the pointer
       prev = temp; // prev and temp is same
@@ -158,7 +158,7 @@ class LinkedList {
 const myLinkedList = new LinkedList(0);
 
 myLinkedList.push(1);
-myLinkedList.push(46456);
+myLinkedList.push(2);
 myLinkedList.push(3);
 myLinkedList.push(4);
 
