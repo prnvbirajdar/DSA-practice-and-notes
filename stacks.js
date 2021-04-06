@@ -30,3 +30,9 @@ class Stack {
 
   // pop() {}
 }
+
+const myStack = new Stack(1);
+ myStack.push(2);
+
+console.log(myStack);
+
