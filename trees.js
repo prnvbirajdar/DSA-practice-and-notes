@@ -54,6 +54,31 @@ class BST {
     }
   }
 
+  contains(value) {
+    // if tree is empty, it returns false
+    if (this.root === null) return false;
+    // assign a variable at top
+    let temp = this.root;
+    //lopp runs till temp is true
+    while (temp) {
+      // if value is less that temp value this if runs
+      if (value < temp.value) {
+        // we assign temp a new value on this layer and while loop runs again
+        temp = temp.left;
+      }
+      // if value is greater that temp value this if runs
+      else if (value > temp.value) {
+        // we assign temp a new value on this layer and while loop runs again
+        temp = temp.right;
+      } else {
+        // returns true if temp and value are same number
+        return true;
+      }
+      // if it doesn't exits, temp will be false at some point, we will come out of the while loop
+      // and it returns false
+    }
+    return false;
+  }
 }
 
 const myTree = new BST();
