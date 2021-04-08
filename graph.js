@@ -4,7 +4,15 @@ class Graph {
     this.adjacencyList = {};
   }
 
-  
+  addVortex(vortex) {
+    if (!this.adjacencyList[vortex]) {
+      this.adjacencyList[vortex] = [];
+      return true;
+    }
+    return false;
+  }
+
+
 }
 
 let myGraph = new Graph();
