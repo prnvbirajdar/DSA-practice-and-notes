@@ -35,9 +35,19 @@ class HashTable {
     let index = this._hash(key);
     if (this.dataMap[index]) {
       const answer = this.dataMap[index].filter((item) => item[0] === key);
-      return answer[0][1]
+      return answer[0][1];
     }
     return undefined;
+  }
+
+  getAllKeys() {
+    const allKeys = [];
+    for (let i = 0; i < this.dataMap.length; i++) {
+      if (this.dataMap[i]) {
+        this.dataMap[i].map((key) => allKeys.push(key[0]));
+      }
+    }
+    return allKeys;
   }
 }
 
@@ -48,6 +58,14 @@ myHashTable.set("bolts", 1400);
 myHashTable.set("washers", 50);
 
 console.log(myHashTable);
+
+// function that return true if same number exists in both arrays
+
+function sameNumberPresent(arr1, arr2) {
+
+
+  
+}
 
 // function that return first recurring number i.e. 2
 
