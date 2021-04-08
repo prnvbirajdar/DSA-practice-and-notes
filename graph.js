@@ -4,9 +4,9 @@ class Graph {
     this.adjacencyList = {};
   }
 
-  addVortex(vortex) {
-    if (!this.adjacencyList[vortex]) {
-      this.adjacencyList[vortex] = [];
+  addVertex(vertex) {
+    if (!this.adjacencyList[vertex]) {
+      this.adjacencyList[vertex] = [];
       return true;
     }
     return false;
@@ -35,14 +35,24 @@ class Graph {
     }
     return false;
   }
+
+  removeVertex(vertex) {
+    if (!this.adjacencyList[vertex]) return undefined;
+    while (this.adjacencyList[vertex].length) {
+      let temp = this.adjacencyList[vertex].pop();
+      this.removeEdge(vertex, temp);
+    }
+    delete this.adjacencyList[vertex];
+    return this;
+  }
 }
 
 let myGraph = new Graph();
 
-myGraph.addVortex("A");
-myGraph.addVortex("B");
-myGraph.addVortex("C");
-myGraph.addVortex("D");
+myGraph.addVertex("A");
+myGraph.addVertex("B");
+myGraph.addVertex("C");
+myGraph.addVertex("D");
 
 myGraph.addEdge("A", "B");
 myGraph.addEdge("A", "C");
