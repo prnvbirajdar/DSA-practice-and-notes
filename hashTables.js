@@ -61,10 +61,19 @@ console.log(myHashTable);
 
 // function that return true if same number exists in both arrays
 
+arr1 = [1, 2, 3];
+arr2 = [3, 4, 5];
+
 function sameNumberPresent(arr1, arr2) {
+  const obj = {};
 
+  arr1.map((num) => (obj[num] = true));
 
-  
+  for (let i = 0; i < arr2.length; i++) {
+    if (obj[arr2[i]]) return true;
+  }
+
+  return false;
 }
 
 // function that return first recurring number i.e. 2
