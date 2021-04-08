@@ -30,9 +30,22 @@ class HashTable {
     this.dataMap[index].push([key, value]);
     return this;
   }
+
+  get(key) {
+    let index = this._hash(key);
+    if (this.dataMap[index]) {
+      const answer = this.dataMap[index].filter((item) => item[0] === key);
+      return answer[0][1]
+    }
+    return undefined;
+  }
 }
 
 let myHashTable = new HashTable();
+
+myHashTable.set("lumber", 70);
+myHashTable.set("bolts", 1400);
+myHashTable.set("washers", 50);
 
 console.log(myHashTable);
 
