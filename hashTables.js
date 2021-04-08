@@ -1,3 +1,23 @@
+// Hash Table Constructor
+
+class HashTable {
+  // size is 7, because it is a prime number
+  // and it causes a more randomized distribution of key-value pairs
+  constructor(size = 7) {
+    this.dataMap = new Array(size);
+  }
+  // hash function
+  // underscore is to denote not to called methos directly and 
+  // that it should be only be called by other methods
+  _hash(key) {
+    let hash = 0;
+    for (let i = 0; i < key.length; i++) {
+      hash = (hash + key.charCodeAt(i) * 23) % this.dataMap.length;
+    }
+    return hash;
+  }
+}
+
 // function that return first recurring number i.e. 2
 
 function recurringNum(arr) {
