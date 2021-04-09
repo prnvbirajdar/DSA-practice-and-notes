@@ -24,16 +24,24 @@ function bubbleSort(arr) {
 
 function bubbleSort2(arr) {
   let n = arr.length;
-
+  //optimization if there is no swaps, works great for almost sorted arrays
+  let noSwaps;
   for (let i = n; i > 0; i--) {
     console.log(arr[i]);
-
+    //we set noSwaps as true, meaning two item have not swapped
+    noSwaps = true;
     for (let j = 0; j < i - 1; j++) {
       console.log(arr, arr[j], arr[j + 1]);
       if (arr[j] > arr[j + 1]) {
         [arr[j], arr[j + 1]] = [arr[j + 1], arr[j]];
+        //however if swaps are still happening in this loop,
+        //noswaps is false and the loop continues running and
+        //sorting
+        noSwaps = false;
       }
     }
+    //if noSwaps is true, loop breaks and we get the array
+    if (noSwaps) break;
   }
   return arr;
 }
