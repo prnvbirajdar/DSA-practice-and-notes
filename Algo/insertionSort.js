@@ -16,4 +16,3 @@ function insertionSort(arr) {
 }
 
 // arr1 = [8, 6, 4, 7, 5, 1, 2, 3];
-

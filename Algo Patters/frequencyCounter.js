@@ -16,20 +16,4 @@
 
 //String or array
 
-function sameNumberPresent(arr1, arr2) {
-    if (arr1.length !== arr2.length) return false;
-  
-    arr1 = [...arr1];
-    arr2 = [...arr2];
-  
-    const obj = {};
-  
-    arr1.map((num) => (obj[num] = true));
-  
-    for (let i = 0; i < arr2.length; i++) {
-      if (obj[arr2[i]]) return true;
-    }
-  
-    return false;
-  }
   
