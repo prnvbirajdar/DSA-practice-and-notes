@@ -1,3 +1,14 @@
+//quick sort
+
+function quickSort(array, left = 0, right = array.length - 1) {
+  if (left < right) {
+    let pivotIndex = pivotFunc(array, left, right);
+    quickSort(array, left, pivotIndex - 1);
+    quickSort(array, pivotIndex + 1, right);
+  }
+
+  return array;
+}
 
 // watch the video for pivot code explanation
 function pivotFunc(array, pivotIndex = 0, endIndex = array.length - 1) {
